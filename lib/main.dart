@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skypea_budget_planner/app_theme.dart';
 
 import 'routing/main_router.dart';
 
@@ -14,7 +15,7 @@ class BudgetPlannerApp extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      theme: ThemeData(useMaterial3: true),
+      theme: AppTheme.darkTheme,
     );
   }
 }
