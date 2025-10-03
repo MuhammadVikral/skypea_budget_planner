@@ -7,7 +7,7 @@ import 'package:skypea_budget_planner/routing/main_fab.dart';
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
-  initialLocation: '/budget',
+  initialLocation: '/settings',
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
@@ -72,7 +72,7 @@ final router = GoRouter(
             GoRoute(
               path: '/settings',
               pageBuilder: (context, state) =>
-                  const NoTransitionPage(child: SettingPage()),
+                  const NoTransitionPage(child: SettingsPage()),
             ),
           ],
         ),
