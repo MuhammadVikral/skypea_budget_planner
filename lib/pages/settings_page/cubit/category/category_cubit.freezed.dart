@@ -128,7 +128,7 @@ return loaded(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  busy,TResult Function( Exception failure)?  failure,TResult Function( BudgetCategory categories)?  loaded,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  busy,TResult Function( Exception failure)?  failure,TResult Function( List<BudgetCategory> categories)?  loaded,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Busy() when busy != null:
@@ -152,7 +152,7 @@ return loaded(_that.categories);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  busy,required TResult Function( Exception failure)  failure,required TResult Function( BudgetCategory categories)  loaded,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  busy,required TResult Function( Exception failure)  failure,required TResult Function( List<BudgetCategory> categories)  loaded,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case _Busy():
@@ -175,7 +175,7 @@ return loaded(_that.categories);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  busy,TResult? Function( Exception failure)?  failure,TResult? Function( BudgetCategory categories)?  loaded,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  busy,TResult? Function( Exception failure)?  failure,TResult? Function( List<BudgetCategory> categories)?  loaded,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case _Busy() when busy != null:
@@ -323,10 +323,16 @@ as Exception,
 
 
 class _Loaded implements CategoryState {
-  const _Loaded(this.categories);
+  const _Loaded(final  List<BudgetCategory> categories): _categories = categories;
   
 
- final  BudgetCategory categories;
+ final  List<BudgetCategory> _categories;
+ List<BudgetCategory> get categories {
+  if (_categories is EqualUnmodifiableListView) return _categories;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_categories);
+}
+
 
 /// Create a copy of CategoryState
 /// with the given fields replaced by the non-null parameter values.
@@ -338,12 +344,12 @@ _$LoadedCopyWith<_Loaded> get copyWith => __$LoadedCopyWithImpl<_Loaded>(this, _
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loaded&&(identical(other.categories, categories) || other.categories == categories));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Loaded&&const DeepCollectionEquality().equals(other._categories, _categories));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,categories);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_categories));
 
 @override
 String toString() {
@@ -358,11 +364,11 @@ abstract mixin class _$LoadedCopyWith<$Res> implements $CategoryStateCopyWith<$R
   factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) _then) = __$LoadedCopyWithImpl;
 @useResult
 $Res call({
- BudgetCategory categories
+ List<BudgetCategory> categories
 });
 
 
-$BudgetCategoryCopyWith<$Res> get categories;
+
 
 }
 /// @nodoc
@@ -377,21 +383,12 @@ class __$LoadedCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? categories = null,}) {
   return _then(_Loaded(
-null == categories ? _self.categories : categories // ignore: cast_nullable_to_non_nullable
-as BudgetCategory,
+null == categories ? _self._categories : categories // ignore: cast_nullable_to_non_nullable
+as List<BudgetCategory>,
   ));
 }
 
-/// Create a copy of CategoryState
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BudgetCategoryCopyWith<$Res> get categories {
-  
-  return $BudgetCategoryCopyWith<$Res>(_self.categories, (value) {
-    return _then(_self.copyWith(categories: value));
-  });
-}
+
 }
 
 // dart format on

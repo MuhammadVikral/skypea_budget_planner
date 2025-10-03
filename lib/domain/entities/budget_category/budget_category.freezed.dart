@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BudgetCategory {
 
- String get id; String get name;
+ int get id; String get name;
 /// Create a copy of BudgetCategory
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -45,7 +45,7 @@ abstract mixin class $BudgetCategoryCopyWith<$Res>  {
   factory $BudgetCategoryCopyWith(BudgetCategory value, $Res Function(BudgetCategory) _then) = _$BudgetCategoryCopyWithImpl;
 @useResult
 $Res call({
- String id, String name
+ int id, String name
 });
 
 
@@ -65,7 +65,7 @@ class _$BudgetCategoryCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -151,7 +151,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BudgetCategory() when $default != null:
 return $default(_that.id,_that.name);case _:
@@ -172,7 +172,7 @@ return $default(_that.id,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name)  $default,) {final _that = this;
 switch (_that) {
 case _BudgetCategory():
 return $default(_that.id,_that.name);case _:
@@ -192,7 +192,7 @@ return $default(_that.id,_that.name);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name)?  $default,) {final _that = this;
 switch (_that) {
 case _BudgetCategory() when $default != null:
 return $default(_that.id,_that.name);case _:
@@ -210,7 +210,7 @@ class _BudgetCategory implements BudgetCategory {
   const _BudgetCategory({required this.id, required this.name});
   
 
-@override final  String id;
+@override final  int id;
 @override final  String name;
 
 /// Create a copy of BudgetCategory
@@ -243,7 +243,7 @@ abstract mixin class _$BudgetCategoryCopyWith<$Res> implements $BudgetCategoryCo
   factory _$BudgetCategoryCopyWith(_BudgetCategory value, $Res Function(_BudgetCategory) _then) = __$BudgetCategoryCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name
+ int id, String name
 });
 
 
@@ -263,7 +263,7 @@ class __$BudgetCategoryCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,}) {
   return _then(_BudgetCategory(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

@@ -15,6 +15,7 @@ class _SettingsCategoriesState extends State<SettingsCategories> {
       children: [
         ListTile(
           title: const Text('Transaction Summary'),
+          splashColor: Theme.of(context).splashColor,
           trailing: Icon(_expanded ? Icons.expand_less : Icons.expand_more),
           onTap: () => setState(() => _expanded = !_expanded),
         ),
@@ -56,7 +57,37 @@ class CategoriesBuilder extends StatelessWidget {
               ],
             ),
             loaded: (categories) {
-              return Text(categories.name);
+              return Column(
+                spacing: 12,
+                children: [
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    onPressed: () {},
+                    color: Theme.of(context).splashColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 16,
+                        children: [
+                          Text('Add New Category'),
+                          Icon(Icons.add, size: 24),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) =>
+                        ListTile(title: Text(categories[index].name)),
+                    itemCount: categories.length,
+                  ),
+                ],
+              );
             },
           );
         },

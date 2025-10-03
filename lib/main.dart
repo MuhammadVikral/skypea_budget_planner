@@ -6,14 +6,11 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'routing/main_router.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   const supabaseKey = String.fromEnvironment('SUPABASE_KEY');
   await Supabase.initialize(
     url: 'https://bkppbccrmrhjirroseod.supabase.co',
     anonKey: supabaseKey,
-    headers: {
-      'apikey':
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJrcHBiY2NybXJoamlycm9zZW9kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk0NjI3MTksImV4cCI6MjA3NTAzODcxOX0.z6bk5sCm9GI8RFoDRa0jhuVjkew5K2cfUBNjAsAG4e4',
-    },
   );
   await DependencyInjection().injectApp();
   await di.allReady();

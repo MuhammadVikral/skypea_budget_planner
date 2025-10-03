@@ -3,6 +3,6 @@ part 'budget_category.freezed.dart';
 
 @freezed
 abstract class BudgetCategory with _$BudgetCategory {
-  const factory BudgetCategory({required String id, required String name}) =
+  const factory BudgetCategory({required int id, required String name}) =
       _BudgetCategory;
 }

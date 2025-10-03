@@ -15,6 +15,12 @@ class AppTheme {
       backgroundColor: Color(0xFF1E1E1E),
       foregroundColor: Colors.white,
     ),
+    listTileTheme: const ListTileThemeData(
+      tileColor: Colors.teal,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+    ),
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: const Color(0xFF1E1E1E),
       indicatorColor: Colors.tealAccent.withValues(alpha: 0.5),

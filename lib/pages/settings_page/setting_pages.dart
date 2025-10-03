@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skypea_budget_planner/dependency_injection.dart';
 import 'package:skypea_budget_planner/pages/settings_page/cubit/_cubit.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 part 'widgets/settings_categories.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -23,7 +24,24 @@ class SettingsUI extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Column(children: [SettingsCategories()]),
+      child: Column(
+        spacing: 24,
+        children: [
+          Align(
+            alignment: Alignment.topRight,
+            child: InkWell(
+              child: Icon(Icons.logout),
+              onTap: () async {
+                await supabase.auth.signInWithPassword(
+                  password: '123',
+                  email: 'mvikral100@gmail.com',
+                );
+              },
+            ),
+          ),
+          SettingsCategories(),
+        ],
+      ),
     );
   }
 }
